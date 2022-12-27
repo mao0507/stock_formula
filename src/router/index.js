@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/hello",
+    path: "/",
     name: "helloWorld",
     component: helloWorld,
   },
@@ -20,10 +20,6 @@ const routes = [
   {
     path: "*",
     redirect: "/404",
-  },
-  {
-    path: "/",
-    redirect: "/hello",
   },
 ];
 

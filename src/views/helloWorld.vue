@@ -85,7 +85,7 @@ export default {
     thousandComma(num) {
       if (num == null || num == undefined || num == "") {
         console.log("缺少num參數");
-        return;
+        return 0;
       }
       var str = num.toString();
       var reg =
