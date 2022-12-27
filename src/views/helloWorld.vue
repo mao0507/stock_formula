@@ -76,14 +76,16 @@ export default {
       }
     },
     Long_Open() {
-      return Math.round(
+      let open = Math.round(
         (this.Stop_Loss_Amount / this.Long_Loss_Point) * this.calculate.in
       );
+      if (open != 0) return open;
+      else return 0;
     },
   },
   methods: {
     thousandComma(num) {
-      if (num == null || num == undefined || num == "") {
+      if (num == null || num == undefined || num == "" || isNaN(num)) {
         console.log("缺少num參數");
         return 0;
       }
