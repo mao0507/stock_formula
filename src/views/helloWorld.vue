@@ -33,11 +33,11 @@
 export default {
   data: () => ({
     calculate: {
-      TA: 10000,
+      TA: 0,
       StopLoss: 1,
       type: "1",
-      in: 1200,
-      out: 1220,
+      in: 0,
+      out: 0,
     },
     textSetting: {
       outlined: true,
