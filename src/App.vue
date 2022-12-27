@@ -33,6 +33,7 @@ export default {
   },
 
   created() {
+    console.log("test");
     console.log(this.sidebar);
     if (this.sidebar) this.links = this.sidebar;
   },
