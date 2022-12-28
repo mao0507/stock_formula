@@ -1,14 +1,13 @@
 <template lang="pug">
     v-app-bar(app flat :dark="isDark")
-      v-row
-        v-col(cols="4" sm="1")
-          v-avatar(size="32" color="grey darken-1 shrink" @click="to('github')" style="z-index:99")
-        v-btn.grey.darken-1(@click="to('github')")
-          v-icon.white--text mdi-github
-        v-tabs.ml-n9(centered color="grey darken-1")
+      v-app-bar-nav-icon(@click="to('github')")
+        template(#default)
+          v-icon(:color="textStyle") mdi-github
+      v-spacer
+      v-tabs.ml-n10.px-6(centered color="grey darken-1" show-arrows )
         v-tab(v-for="link in links"  @click="to(link.to)")  {{ link.text }}
-        
-      v-switch(inset hide-details="true" v-model="isDark")
+      v-spacer
+      v-switch.ml-n8.mt-2(inset hide-details="true" v-model="isDark")
         
         
 
@@ -27,6 +26,13 @@ export default {
   computed: {
     ...mapState(["sidebar", "dark"]),
     ...mapMutations(["changeDark"]),
+    textStyle() {
+      if (this.isDark) {
+        return "white--text";
+      } else {
+        return "black--text";
+      }
+    },
   },
   methods: {
     to(item) {
