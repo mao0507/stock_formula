@@ -42,8 +42,7 @@ export default {
   }),
   computed: {
     ROE() {
-      if (this.calculate.netIncome == null || this.calculate.netAssets == null)
-        return 0;
+      if (!this.calculate.netIncome || !this.calculate.netAssets) return 0;
       else return (this.calculate.netIncome / this.calculate.netAssets) * 100;
     },
   },

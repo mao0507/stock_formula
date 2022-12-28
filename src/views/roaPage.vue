@@ -42,10 +42,7 @@ export default {
   }),
   computed: {
     ROA() {
-      if (
-        this.calculate.netProfitAfterTax == null ||
-        this.calculate.totalAssets == null
-      )
+      if (!this.calculate.netProfitAfterTax || !this.calculate.totalAssets)
         return 0;
       else
         return (

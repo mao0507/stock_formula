@@ -10,6 +10,7 @@ export default new Vuex.Store({
       { text: "ROI 計算", to: "/roi" },
       { text: "ROE 計算", to: "/roe" },
       { text: "ROA 計算", to: "/roa" },
+      { text: "本益比 計算", to: "/pe" },
       // { text: "ROE 計算", to: "/roi" },
       // { text: "404", to: "/404" },
     ],

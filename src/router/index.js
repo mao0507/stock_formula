@@ -5,6 +5,7 @@ import errorPage from "../views/undefinedPage.vue";
 import roiPage from "../views/roiPage.vue";
 import roePage from "../views/roePage.vue";
 import roaPage from "../views/roaPage.vue";
+import pe from "../views/PE_Ratio.vue";
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
     path: "/roa",
     name: "roa",
     component: roaPage,
+  },
+  {
+    path: "/pe",
+    name: "pe",
+    component: pe,
   },
   {
     path: "/404",

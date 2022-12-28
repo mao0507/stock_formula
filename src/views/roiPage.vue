@@ -46,9 +46,9 @@ export default {
   computed: {
     ROI() {
       if (
-        this.calculate.lastPrice == null ||
-        this.calculate.initPrice == null ||
-        this.calculate.cost == null
+        !this.calculate.lastPrice ||
+        !this.calculate.initPrice ||
+        !this.calculate.cost
       )
         return 0;
       else
