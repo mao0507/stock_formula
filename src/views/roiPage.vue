@@ -5,7 +5,7 @@
     v-card(min-height="80vh" rounded="lg" :dark="isDark")
       v-card-title 
         v-icon mdi-apps-box
-        span.pl-2 投資報酬率 計算
+        span.pl-2 投資報酬率 (ROI) 計算
       v-card-text
         v-container
           v-text-field.my-3(v-bind="textSetting" label="投資成本" v-model="calculate.cost") 
