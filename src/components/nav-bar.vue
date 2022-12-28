@@ -5,7 +5,7 @@
           v-icon(:color="textStyle") mdi-github
       v-spacer
       v-tabs.ml-n10.px-6(centered color="grey darken-1" show-arrows )
-        v-tab(v-for="link in links"  @click="to(link.to)")  {{ link.text }}
+        v-tab(v-for="link in links" :to="link.to")  {{ link.text }}
       v-spacer
       v-switch.ml-n8.mt-2(inset hide-details="true" v-model="isDark")
         
