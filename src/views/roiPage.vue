@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-col(col="12" sm="8")
+  v-col(cols="12" sm="8")
     v-overlay(:value="overlay")
       v-progress-circular(indeterminate size="64")
     v-card(min-height="80vh" rounded="lg" :dark="isDark")
