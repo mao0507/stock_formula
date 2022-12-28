@@ -18,7 +18,7 @@
           br
           h3 投資的最初價值 ： {{calculate.initPrice | thousandComma}}
           br
-          h3 投資的當前價值 ： {{calculate.initPrice | thousandComma}}
+          h3 投資的當前價值 ： {{calculate.lastPrice | thousandComma}}
           br
           h3 總投資報酬率 ： {{ROI + ' %' }}  
         
