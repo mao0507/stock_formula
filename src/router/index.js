@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import openPosition from "../views/openPosition.vue";
 import errorPage from "../views/undefinedPage.vue";
 import roiPage from "../views/roiPage.vue";
+import roePage from "../views/roePage.vue";
+import roaPage from "../views/roaPage.vue";
 
 Vue.use(VueRouter);
 
@@ -16,6 +18,16 @@ const routes = [
     path: "/roi",
     name: "roi",
     component: roiPage,
+  },
+  {
+    path: "/roe",
+    name: "roe",
+    component: roePage,
+  },
+  {
+    path: "/roa",
+    name: "roa",
+    component: roaPage,
   },
   {
     path: "/404",
