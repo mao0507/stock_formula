@@ -30,7 +30,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: process.env.NODE_ENV == "development" ? "hash" : "history",
+  mode: process.env.NODE_ENV == "development" ? "hash" : "hash",
   base: process.env.BASE_URL,
   routes,
 });

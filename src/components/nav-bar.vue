@@ -1,14 +1,14 @@
 <template lang="pug">
     v-app-bar(app flat :dark="isDark")
-      v-avatar(size="32" color="grey darken-1 shrink" @click="to('github')" style="z-index:99")
+      v-row
+        v-col(cols="4" sm="1")
+          v-avatar(size="32" color="grey darken-1 shrink" @click="to('github')" style="z-index:99")
         v-btn.grey.darken-1(@click="to('github')")
           v-icon.white--text mdi-github
-      v-tabs.ml-n9(centered color="grey darken-1")
+        v-tabs.ml-n9(centered color="grey darken-1")
         v-tab(v-for="link in links"  @click="to(link.to)")  {{ link.text }}
-        //- v-avatar(class="hidden-sm-and-down" color="grey darken-1 shrink" size="32")
-        //-   v-btn.grey.darken-1()
-        //-     v-icon.white--text mdi-github
-      v-switch.mt-2(inset hide-details="true" v-model="isDark")
+        
+      v-switch(inset hide-details="true" v-model="isDark")
         
         
 
@@ -25,7 +25,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapState(["dark"]),
+    ...mapState(["sidebar", "dark"]),
     ...mapMutations(["changeDark"]),
   },
   methods: {
@@ -40,6 +40,7 @@ export default {
   },
   mounted() {
     this.isDark = this.dark;
+    this.links = this.sidebar;
   },
   watch: {
     isDark(newValue) {
