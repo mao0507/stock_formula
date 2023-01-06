@@ -5,7 +5,7 @@
     v-card(min-height="80vh" rounded="lg" :dark="isDark")
       v-card-title
         v-icon mdi-apps-box
-        span.pl-2 進場點計算
+        span.pl-2 均價計算
       v-card-text 
         v-container
           v-radio-group(v-model="computeType" @change="changeType()" row)
