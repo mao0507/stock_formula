@@ -6,6 +6,9 @@ import roiPage from "../views/roiPage.vue";
 import roePage from "../views/roePage.vue";
 import roaPage from "../views/roaPage.vue";
 import pe from "../views/PE_Ratio.vue";
+import enterPoint from "../views/enterPoint.vue";
+import hazardRatio from "../views/hazardRatio.vue";
+import avgPrice from "../views/avgPrice.vue";
 
 Vue.use(VueRouter);
 
@@ -40,7 +43,21 @@ const routes = [
     name: "undefined Page",
     component: errorPage,
   },
-
+  {
+    path: "/enterPoint",
+    name: "enterPoint",
+    component: enterPoint,
+  },
+  {
+    path: "/hazardRatio",
+    name: "hazardRatio",
+    component: hazardRatio,
+  },
+  {
+    path: "/avgPrice",
+    name: "avgPrice",
+    component: avgPrice,
+  },
   {
     path: "*",
     redirect: "/404",
