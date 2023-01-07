@@ -16,7 +16,7 @@
           v-text-field.my-3(v-bind="Setting.textField" label="目前倉位數量（USDT）" v-model="calculate.Contract_USDT")
           v-text-field.my-3(v-bind="Setting.textField" label="加碼價格" 
           v-model="calculate.Plus_Price")
-          v-text-field.my-3(v-bind="Setting.textField" label="加碼數量" 
+          v-text-field.my-3(v-bind="Setting.textField" label="加碼數量（USDT）" 
           v-model="calculate.Plus_USDT" :disabled="computeType == 'plus'")
           v-text-field.my-3(v-bind="Setting.textField" label="均價" 
           v-model="calculate.AVG_Price" :disabled="computeType == 'avg'")
@@ -86,44 +86,44 @@ export default {
           let Contract_Price =
             this.calculate.Contract_Price == null
               ? 0
-              : parseInt(this.calculate.Contract_Price);
+              : Number(this.calculate.Contract_Price);
 
           let Contract_USDT =
             this.calculate.Contract_USDT == null
               ? 0
-              : parseInt(this.calculate.Contract_USDT);
+              : Number(this.calculate.Contract_USDT);
 
           let Plus_USDT =
             this.calculate.Plus_USDT == null
               ? 0
-              : parseInt(this.calculate.Plus_USDT);
+              : Number(this.calculate.Plus_USDT);
 
           let Plus_Price =
             this.calculate.Plus_Price == null
               ? 0
-              : parseInt(this.calculate.Plus_Price);
+              : Number(this.calculate.Plus_Price);
 
           let n =
             (Contract_Price * Contract_USDT) / (Contract_USDT + Plus_USDT) +
             (Plus_Price * Plus_USDT) / (Contract_USDT + Plus_USDT);
 
-          return isNaN(n) ? 0 : n;
+          return isNaN(n) ? 0 : Number(n.toFixed(6));
         }
 
         if (type == "avg_USDT") {
           let Contract_USDT =
             this.calculate.Contract_USDT == null
               ? 0
-              : parseInt(this.calculate.Contract_USDT);
+              : Number(this.calculate.Contract_USDT);
 
           let Plus_USDT =
             this.calculate.Plus_USDT == null
               ? 0
-              : parseInt(this.calculate.Plus_USDT);
+              : Number(this.calculate.Plus_USDT);
 
           let n = Contract_USDT + Plus_USDT;
 
-          return isNaN(n) ? 0 : n;
+          return isNaN(n) ? 0 : Number(n.toFixed(6));
         }
       }
 
@@ -132,22 +132,22 @@ export default {
           let Contract_Price =
             this.calculate.Contract_Price == null
               ? 0
-              : parseInt(this.calculate.Contract_Price);
+              : Number(this.calculate.Contract_Price);
 
           let Contract_USDT =
             this.calculate.Contract_USDT == null
               ? 0
-              : parseInt(this.calculate.Contract_USDT);
+              : Number(this.calculate.Contract_USDT);
 
           let AVG_Price =
             this.calculate.AVG_Price == null
               ? 0
-              : parseInt(this.calculate.AVG_Price);
+              : Number(this.calculate.AVG_Price);
 
           let Plus_Price =
             this.calculate.Plus_Price == null
               ? 0
-              : parseInt(this.calculate.Plus_Price);
+              : Number(this.calculate.Plus_Price);
 
           let n;
           if (AVG_Price != 0) {
@@ -158,7 +158,7 @@ export default {
             null;
           }
 
-          return isNaN(n) ? 0 : n;
+          return isNaN(n) ? 0 : Number(n);
         }
       }
     },
