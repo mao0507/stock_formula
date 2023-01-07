@@ -16,7 +16,7 @@
           v-text-field.my-3(v-bind="Setting.textField" label="目前倉位數量（USDT）" v-model="calculate.Contract_USDT")
           v-text-field.my-3(v-bind="Setting.textField" label="加碼價格" 
           v-model="calculate.Plus_Price")
-          v-text-field.my-3(v-bind="Setting.textField" label="加碼數量（USDT）" 
+          v-text-field.my-3(v-bind="Setting.textField" label="加碼數量" 
           v-model="calculate.Plus_USDT" :disabled="computeType == 'plus'")
           v-text-field.my-3(v-bind="Setting.textField" label="均價" 
           v-model="calculate.AVG_Price" :disabled="computeType == 'avg'")

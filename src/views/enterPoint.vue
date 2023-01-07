@@ -65,40 +65,23 @@ export default {
 
       if (type == 2) {
         return (
-          Number(this.calculate.Stop_Loss) +
-          Number(
-            ((this.calculate.Stop_Gain - this.calculate.Stop_Loss) / 3).toFixed(
-              6
-            )
-          )
+          Math.round(
+            (this.calculate.Stop_Gain - this.calculate.Stop_Loss) / 3
+          ) + parseInt(this.calculate.Stop_Loss)
         );
       }
       if (type == 2.5) {
-        let num = (
-          (this.calculate.Stop_Gain - this.calculate.Stop_Loss) /
-          3.5
-        ).toFixed(6);
-
-        console.log(num);
-
         return (
-          Number(this.calculate.Stop_Loss) +
-          Number(
-            (
-              (this.calculate.Stop_Gain - this.calculate.Stop_Loss) /
-              3.5
-            ).toFixed(6)
-          )
+          Math.round(
+            (this.calculate.Stop_Gain - this.calculate.Stop_Loss) / 3.5
+          ) + parseInt(this.calculate.Stop_Loss)
         );
       }
       if (type == 3) {
         return (
-          Number(this.calculate.Stop_Loss) +
-          Number(
-            ((this.calculate.Stop_Gain - this.calculate.Stop_Loss) / 4).toFixed(
-              6
-            )
-          )
+          Math.round(
+            (this.calculate.Stop_Gain - this.calculate.Stop_Loss) / 4
+          ) + parseInt(this.calculate.Stop_Loss)
         );
       }
     },

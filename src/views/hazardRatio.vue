@@ -23,7 +23,7 @@
             br 
             h3 停損點 : {{calculate.Stop_Loss}}
             br
-            h3 風報比 :  {{isNaN(roundToTwo(Rate_of_risk_return)) ? 0 : roundToTwo(Rate_of_risk_return)}}
+            h3 風報比 :  {{roundToTwo(Rate_of_risk_return)}}
            
 </template>
 <script>
@@ -80,7 +80,7 @@ export default {
         console.log("缺少num參數");
         return null;
       }
-      return +(Math.round(num + "e+6") + "e-6");
+      return +(Math.round(num + "e+2") + "e-2");
     },
   },
 };
