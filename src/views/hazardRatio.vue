@@ -52,10 +52,9 @@ export default {
       }
 
       return (
-        (parseInt(this.calculate.Stop_Gain) -
-          parseInt(this.calculate.Entry_price)) /
-        (parseInt(this.calculate.Entry_price) -
-          parseInt(this.calculate.Stop_Loss))
+        (Number(this.calculate.Stop_Gain) -
+          Number(this.calculate.Entry_price)) /
+        (Number(this.calculate.Entry_price) - Number(this.calculate.Stop_Loss))
       );
     },
   },
