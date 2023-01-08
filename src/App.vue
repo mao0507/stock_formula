@@ -17,6 +17,7 @@
 </template>
 <script>
 import navBar from "../src/components/nav-bar.vue";
+import { meme } from "../src/store/meme";
 export default {
   name: "App",
 
@@ -40,11 +41,12 @@ export default {
   computed: {},
 
   created() {
-    console.log("test");
+    let count = this.getRandom(1, 5);
+    meme(count);
   },
   methods: {
-    to(item) {
-      console.log(item);
+    getRandom(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     },
   },
 };
