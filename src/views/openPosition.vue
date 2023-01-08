@@ -29,7 +29,9 @@
             br
             h3 {{outTitle}} ： {{calculate.out | thousandComma}}
             br
-            h3 建議開倉位大小 ： {{Long_Open | thousandComma}}
+            h3 建議開倉位大小 （U）： {{open_U }}
+            br
+            h3 建議開倉大小（顆數）： {{open_Unit}}
 
 </template>
 <script>
@@ -80,12 +82,23 @@ export default {
         return this.calculate.out - this.calculate.in;
       }
     },
-    Long_Open() {
+    open_U() {
       let open = Math.round(
         (this.Stop_Loss_Amount / this.Long_Loss_Point) * this.calculate.in
       );
-      if (open != 0) return open;
-      else return 0;
+      return isNaN(open)
+        ? 0
+        : open == Infinity
+        ? "進場價格 不可與 停損價格 相同"
+        : open;
+    },
+    open_Unit() {
+      let num = this.open_U / this.calculate.in;
+      return isNaN(num)
+        ? 0
+        : num == Infinity
+        ? "進場價格 不可與 停損價格 相同"
+        : num;
     },
   },
   methods: {
@@ -105,7 +118,7 @@ export default {
       this.overlay = false;
     }, 500);
     this.isDark = this.$store.state.dark;
-    console.log("isDark", this.isDark);
+    //console.log("isDark", this.isDark);
   },
   watch: {
     "$store.state.dark"(newValue) {
