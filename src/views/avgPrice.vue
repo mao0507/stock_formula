@@ -65,7 +65,7 @@ export default {
       this.overlay = false;
     }, 500);
     this.isDark = this.dark;
-    console.log("isDark", this.isDark);
+    //console.log("isDark", this.isDark);
   },
   methods: {
     //變更模式
@@ -79,7 +79,7 @@ export default {
     },
 
     compute(type) {
-      console.log(type);
+      //console.log(type);
 
       if (this.computeType == "avg") {
         if (type == "avg_Price") {

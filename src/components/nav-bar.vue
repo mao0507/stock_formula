@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     to(item) {
-      console.log(item);
+      //console.log(item);
       if (item == "github") {
         window.location.href = "https://github.com/mao0507/stock_formula";
       } else {

@@ -65,7 +65,7 @@ export default {
       this.overlay = false;
     }, 500);
     this.isDark = this.$store.state.dark;
-    console.log("isDark", this.isDark);
+    //console.log("isDark", this.isDark);
   },
   watch: {
     "$store.state.dark"(newValue) {

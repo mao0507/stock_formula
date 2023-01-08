@@ -51,7 +51,7 @@ export default {
       this.overlay = false;
     }, 500);
     this.isDark = this.dark;
-    console.log("isDark", this.isDark);
+    //console.log("isDark", this.isDark);
   },
 
   methods: {

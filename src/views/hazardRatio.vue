@@ -66,7 +66,7 @@ export default {
       this.overlay = false;
     }, 500);
     this.isDark = this.dark;
-    console.log("isDark", this.isDark);
+    //console.log("isDark", this.isDark);
   },
   watch: {
     "$store.state.dark"(newValue) {
@@ -76,7 +76,7 @@ export default {
   methods: {
     roundTo(num, count) {
       if (num == null || num == undefined || num == "") {
-        console.log("缺少num參數");
+        //console.log("缺少num參數");
         return null;
       }
       if (count == null) count = 2;
