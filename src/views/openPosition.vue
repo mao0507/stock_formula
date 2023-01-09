@@ -31,7 +31,7 @@
             br
             h3 建議開倉金額 ： {{open_U }}
             br
-            h3 建議開倉大小股數： {{open_Unit}}
+            h3 建議開倉單位數： {{open_Unit}}
 
 </template>
 <script>

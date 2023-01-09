@@ -8,7 +8,7 @@
         span.pl-2 均價計算
       v-card-text 
         v-container
-          v-alert.no-gutters(type="info" dense   hide-details=true) 輸入數量時，單位請保持一致性，使用 金額 / 股數  
+          v-alert.no-gutters(type="info" dense   hide-details=true) 輸入數量時，單位請保持一致性，使用 金額 / 單位數  
           v-radio-group(v-model="computeType" @change="changeType()" row hide-details=true)
             v-radio(label="均價計算" value="avg")
             v-radio(label="加碼數量計算" value="plus")
@@ -36,7 +36,7 @@
           h3(v-if="computeType == 'avg'") 均價 : {{compute('avg_Price')}}
           h3(v-else) 均價 :  {{calculate.AVG_Price}}
           br
-          h3(v-if="computeType == 'avg'") 總股數 : {{compute('avg_USDT')}}
+          h3(v-if="computeType == 'avg'") 總金額 / 總單數 : {{compute('avg_USDT')}}
 
 
 
