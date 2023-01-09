@@ -11,13 +11,13 @@
           v-alert.no-gutters(type="info" dense   hide-details=true) 輸入數量時，單位請保持一致性，使用 金額 / 股數  
           v-radio-group(v-model="computeType" @change="changeType()" row hide-details=true)
             v-radio(label="均價計算" value="avg")
-            v-radio(label="加碼數量（USDT）計算" value="plus")
+            v-radio(label="加碼數量計算" value="plus")
           v-text-field.my-3(v-bind="Setting.textField" label="目前倉位價格" 
           v-model="calculate.Contract_Price" )
-          v-text-field.my-3(v-bind="Setting.textField" label="目前倉位數量（USDT）" v-model="calculate.Contract_USDT")
+          v-text-field.my-3(v-bind="Setting.textField" label="目前倉位數量" v-model="calculate.Contract_USDT")
           v-text-field.my-3(v-bind="Setting.textField" label="加碼價格" 
           v-model="calculate.Plus_Price")
-          v-text-field.my-3(v-bind="Setting.textField" label="加碼數量（USDT）" 
+          v-text-field.my-3(v-bind="Setting.textField" label="加碼數量" 
           v-model="calculate.Plus_USDT" :disabled="computeType == 'plus'")
           v-text-field.my-3(v-bind="Setting.textField" label="均價" 
           v-model="calculate.AVG_Price" :disabled="computeType == 'avg'")
