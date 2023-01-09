@@ -8,7 +8,8 @@
         span.pl-2 均價計算
       v-card-text 
         v-container
-          v-radio-group(v-model="computeType" @change="changeType()" row)
+          v-alert.no-gutters(type="info" dense   hide-details=true) 輸入數量時，單位請保持一致性，使用 金額 / 股數  
+          v-radio-group(v-model="computeType" @change="changeType()" row hide-details=true)
             v-radio(label="均價計算" value="avg")
             v-radio(label="加碼數量（USDT）計算" value="plus")
           v-text-field.my-3(v-bind="Setting.textField" label="目前倉位價格" 
@@ -25,17 +26,17 @@
 
           h3 目前倉位價格 : {{calculate.Contract_Price}}
           br 
-          h3 目前倉位數量（USDT） : {{calculate.Contract_USDT}}
+          h3 目前倉位數量 : {{calculate.Contract_USDT}}
           br
           h3 加碼價格 : {{calculate.Plus_Price}}
           br
-          h3(v-if="computeType == 'avg'") 加碼數量（USDT） : {{calculate.Plus_USDT}}
-          h3(v-else) 加碼數量（USDT） :  {{compute('Plus_USDT')}}
+          h3(v-if="computeType == 'avg'") 加碼數量 : {{calculate.Plus_USDT}}
+          h3(v-else) 加碼數量 :  {{compute('Plus_USDT')}}
           br 
           h3(v-if="computeType == 'avg'") 均價 : {{compute('avg_Price')}}
           h3(v-else) 均價 :  {{calculate.AVG_Price}}
           br
-          h3(v-if="computeType == 'avg'") 總數 : {{compute('avg_USDT')}}
+          h3(v-if="computeType == 'avg'") 總股數 : {{compute('avg_USDT')}}
 
 
 
