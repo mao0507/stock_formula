@@ -37,6 +37,7 @@
           h3(v-else) 均價 :  {{calculate.AVG_Price}}
           br
           h3(v-if="computeType == 'avg'") {{totalTitle}} : {{compute('avg_USDT')}}
+          h3(v-else) {{totalTitle}} : {{compute('avg_USDT')}}
 
 
 
@@ -121,9 +122,9 @@ export default {
     },
 
     compute(type) {
-      //console.log(type);
-
+      //算平均價
       if (this.computeType == "avg") {
+        //算出平均價
         if (type == "avg_Price") {
           let Contract_Price =
             this.calculate.Contract_Price == null
@@ -151,7 +152,7 @@ export default {
 
           return isNaN(n) ? 0 : Number(n.toFixed(6));
         }
-
+        //算出總數
         if (type == "avg_USDT") {
           let Contract_USDT =
             this.calculate.Contract_USDT == null
@@ -168,8 +169,9 @@ export default {
           return isNaN(n) ? 0 : Number(n.toFixed(6));
         }
       }
-
+      //算加碼
       if (this.computeType == "plus") {
+        //算加碼數量
         if (type == "Plus_USDT") {
           let Contract_Price =
             this.calculate.Contract_Price == null
@@ -201,6 +203,17 @@ export default {
           }
 
           return isNaN(n) ? 0 : Number(n);
+        }
+        //算加碼後總數
+        if (type == "avg_USDT") {
+          let Contract_USDT =
+            this.calculate.Contract_USDT == null
+              ? 0
+              : this.calculate.Contract_USDT;
+          //這裡使用computed 計算後的 Plus_USDT
+          let count = Number(Contract_USDT) + Number(this.compute("Plus_USDT"));
+
+          return count;
         }
       }
     },
