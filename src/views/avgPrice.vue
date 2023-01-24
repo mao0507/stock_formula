@@ -12,9 +12,9 @@
           v-radio-group(v-model="computeType" @change="changeType()" row hide-details=true)
             v-radio(label="均價計算" value="avg")
             v-radio(label="加碼數量計算" value="plus")
-          v-text-field.my-3(v-bind="Setting.textField" :label="currentTitle" 
+          v-text-field.my-3(v-bind="Setting.textField"  label="目前倉位價格" 
           v-model="calculate.Contract_Price" )
-          v-text-field.my-3(v-bind="Setting.textField" label="目前倉位數量" v-model="calculate.Contract_USDT")
+          v-text-field.my-3(v-bind="Setting.textField"  :label="currentTitle" v-model="calculate.Contract_USDT")
           v-text-field.my-3(v-bind="Setting.textField" label="加碼價格" 
           v-model="calculate.Plus_Price")
           v-text-field.my-3(v-bind="Setting.textField" :label="overweightTitle" 
