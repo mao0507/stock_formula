@@ -1,23 +1,23 @@
 <template lang="pug">
-   v-col(cols="12" sm="8")
+   v-col(cols="12" sm="8" md="8" lg="12")
     v-overlay(:value="overlay")
       v-progress-circular(indeterminate size="64")
     v-card(min-height="80vh" rounded="lg" :dark="isDark")
       v-card-title
         v-icon mdi-apps-box
-        span.pl-2 均價計算
+        span.pl-2 均價 / 加碼數量計算
       v-card-text 
         v-container
-          v-alert.no-gutters(type="info" dense   hide-details=true) 輸入數量時，單位請保持一致性，使用 金額 / 單位數  
+          v-alert.no-gutters(type="info" dense   hide-details=true) 輸入數量時，單位請保持一致性，使用 {{alertTitle}}
           v-radio-group(v-model="computeType" @change="changeType()" row hide-details=true)
             v-radio(label="均價計算" value="avg")
             v-radio(label="加碼數量計算" value="plus")
-          v-text-field.my-3(v-bind="Setting.textField" label="目前倉位價格" 
+          v-text-field.my-3(v-bind="Setting.textField" :label="currentTitle" 
           v-model="calculate.Contract_Price" )
           v-text-field.my-3(v-bind="Setting.textField" label="目前倉位數量" v-model="calculate.Contract_USDT")
           v-text-field.my-3(v-bind="Setting.textField" label="加碼價格" 
           v-model="calculate.Plus_Price")
-          v-text-field.my-3(v-bind="Setting.textField" label="加碼數量" 
+          v-text-field.my-3(v-bind="Setting.textField" :label="overweightTitle" 
           v-model="calculate.Plus_USDT" :disabled="computeType == 'plus'")
           v-text-field.my-3(v-bind="Setting.textField" label="均價" 
           v-model="calculate.AVG_Price" :disabled="computeType == 'avg'")
@@ -26,17 +26,17 @@
 
           h3 目前倉位價格 : {{calculate.Contract_Price}}
           br 
-          h3 目前倉位數量 : {{calculate.Contract_USDT}}
+          h3 {{currentTitle}} : {{calculate.Contract_USDT}}
           br
           h3 加碼價格 : {{calculate.Plus_Price}}
           br
-          h3(v-if="computeType == 'avg'") 加碼數量 : {{calculate.Plus_USDT}}
+          h3(v-if="computeType == 'avg'") {{overweightTitle}} : {{calculate.Plus_USDT}}
           h3(v-else) 加碼數量 :  {{compute('Plus_USDT')}}
           br 
           h3(v-if="computeType == 'avg'") 均價 : {{compute('avg_Price')}}
           h3(v-else) 均價 :  {{calculate.AVG_Price}}
           br
-          h3(v-if="computeType == 'avg'") 總金額 / 總單數 : {{compute('avg_USDT')}}
+          h3(v-if="computeType == 'avg'") {{totalTitle}} : {{compute('avg_USDT')}}
 
 
 
@@ -58,8 +58,49 @@ export default {
       AVG_USDT: null,
     },
   }),
+  props: {
+    type: String,
+  },
   computed: {
     ...mapState(["Setting", "dark"]),
+    //提示文字標題
+    alertTitle() {
+      if (this.type == "twStock" || this.type == "usStock") {
+        return "使用 (股數/張數)";
+      } else {
+        return "使用 (USDT/顆數)";
+      }
+    },
+    //當前倉位標題
+    currentTitle() {
+      if (this.type == "twStock") {
+        return "目前倉位(股數/張數)";
+      } else if (this.type == "usStock") {
+        return "目前倉位(股數)";
+      } else {
+        return "目前倉位(USDT/顆數)";
+      }
+    },
+    //加碼標題
+    overweightTitle() {
+      if (this.type == "twStock") {
+        return "加碼數量(股數/張數)";
+      } else if (this.type == "usStock") {
+        return "加碼數量(股數)";
+      } else {
+        return "加碼數量(USDT/顆數)";
+      }
+    },
+    //總數標題
+    totalTitle() {
+      if (this.type == "twStock") {
+        return "總股數/張數";
+      } else if (this.type == "usStock") {
+        return "總股數";
+      } else {
+        return "總金額/顆數";
+      }
+    },
   },
   mounted() {
     setTimeout(() => {

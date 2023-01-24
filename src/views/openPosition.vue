@@ -1,5 +1,5 @@
 <template lang="pug">
-    v-col(cols="12" sm="8")
+    v-col(cols="12" sm="8" md="8" lg="12")
       v-overlay(:value="overlay")
         v-progress-circular(indeterminate size="64")
       v-card(min-height="80vh" rounded="lg" :dark="isDark")
@@ -31,7 +31,7 @@
             br
             h3 建議開倉金額 ： {{open_U }}
             br
-            h3 建議開倉單位數： {{open_Unit}}
+            h3 {{typeTitle}}： {{open_Unit}}
 
 </template>
 <script>
@@ -58,7 +58,9 @@ export default {
       row: true,
       label: "操作方向",
     },
+    typeTitle: "",
   }),
+  props: { type: String },
   computed: {
     Stop_Loss() {
       return this.calculate.StopLoss / 100;
@@ -94,6 +96,9 @@ export default {
     },
     open_Unit() {
       let num = this.open_U / this.calculate.in;
+      if (this.type == "twStock") {
+        num = (num / 1000).toFixed(3);
+      }
       return isNaN(num)
         ? 0
         : num == Infinity
@@ -119,10 +124,38 @@ export default {
     }, 500);
     this.isDark = this.$store.state.dark;
     //console.log("isDark", this.isDark);
+
+    if (this.type == "cryptocurrency") {
+      this.typeTitle = "建議開倉顆數";
+      this.$forceUpdate();
+    }
+    if (this.type == "twStock") {
+      this.typeTitle = "建議開倉張數";
+      this.$forceUpdate();
+    }
+    if (this.type == "usStock") {
+      this.typeTitle = "建議開倉股數";
+      this.$forceUpdate();
+    }
   },
   watch: {
     "$store.state.dark"(newValue) {
       this.isDark = newValue;
+    },
+    //如果type 有變化
+    type(newValue) {
+      if (newValue == "cryptocurrency") {
+        this.typeTitle = "建議開倉顆數";
+        this.$forceUpdate();
+      }
+      if (newValue == "twStock") {
+        this.typeTitle = "建議開倉張數";
+        this.$forceUpdate();
+      }
+      if (newValue == "usStock") {
+        this.typeTitle = "建議開倉股數";
+        this.$forceUpdate();
+      }
     },
   },
 };
