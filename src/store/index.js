@@ -47,7 +47,36 @@ export default new Vuex.Store({
       //   icon: "",
       // },
 
-      //TODO 等未來有需要分類，再來做區分
+      {
+        name: "加密貨幣",
+        icon: "mdi-bitcoin",
+        category: [
+          {
+            name: "進場點計算",
+            code: "enterPoint",
+            to: "/cryptocurrency/enterPoint",
+            icon: "",
+          },
+          {
+            name: "風報比計算",
+            code: "hazardRatio",
+            to: "/cryptocurrency/hazardRatio",
+            icon: "",
+          },
+          {
+            name: "開倉建議計算",
+            code: "openPosition",
+            to: "/cryptocurrency/openPosition",
+            icon: "",
+          },
+          {
+            name: "均價/加碼數量計算",
+            code: "avgPrice",
+            to: "/cryptocurrency/avgPrice",
+            icon: "",
+          },
+        ],
+      },
       {
         name: "台股",
         icon: "mdi-chart-waterfall",
@@ -104,36 +133,6 @@ export default new Vuex.Store({
             name: "均價/加碼數量計算",
             code: "avgPrice",
             to: "/usStock/avgPrice",
-            icon: "",
-          },
-        ],
-      },
-      {
-        name: "加密貨幣",
-        icon: "mdi-bitcoin",
-        category: [
-          {
-            name: "進場點計算",
-            code: "enterPoint",
-            to: "/cryptocurrency/enterPoint",
-            icon: "",
-          },
-          {
-            name: "風報比計算",
-            code: "hazardRatio",
-            to: "/cryptocurrency/hazardRatio",
-            icon: "",
-          },
-          {
-            name: "開倉建議計算",
-            code: "openPosition",
-            to: "/cryptocurrency/openPosition",
-            icon: "",
-          },
-          {
-            name: "均價/加碼數量計算",
-            code: "avgPrice",
-            to: "/cryptocurrency/avgPrice",
             icon: "",
           },
         ],
