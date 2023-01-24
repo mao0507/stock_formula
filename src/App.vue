@@ -1,22 +1,14 @@
 <template lang="pug">
-  v-app
-    //- 判斷是不是404
-    template(v-if="$route.path !='/404'")
-      nav-bar
-      v-main(:class="styleClass")
-        v-container
-          v-row
-            v-col(cols="2" )
-                    
-            //- router
-            router-view
-    //- 如果是404 切換到404 頁面
-    template(v-if="$route.path == '/404'")
+v-app
+  components(:is="Layout")
+    transition(name="fade" mode="out-in")
       router-view
 
 </template>
 <script>
-import navBar from "../src/components/nav-bar.vue";
+import DefaultLayout from "../src/layout/DefalutLayout.vue";
+
+//import navBar from "../src/components/nav-bar.vue";
 import { meme } from "../src/store/meme";
 export default {
   name: "App",
@@ -25,7 +17,8 @@ export default {
     styleClass: "grey darken-2",
   }),
   components: {
-    navBar,
+    //navBar,
+    DefaultLayout,
   },
   watch: {
     "$store.state.dark"(newValue) {
@@ -38,7 +31,13 @@ export default {
     },
   },
 
-  computed: {},
+  computed: {
+    Layout() {
+      //const latout = this.$route.meta.latout || "default";
+      //return latout + "Layout";
+      return "DefaultLayout";
+    },
+  },
 
   created() {
     let count = this.getRandom(1, 5);
@@ -51,3 +50,19 @@ export default {
   },
 };
 </script>
+<style scoped>
+/**
+ * Transition animation between pages
+ */
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+</style>

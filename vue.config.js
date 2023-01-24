@@ -5,4 +5,9 @@ module.exports = defineConfig({
       ? "/stock_formula/"
       : "/stock_formula",
   transpileDependencies: ["vuetify"],
+  pluginOptions: {
+    gitDescribe: {
+      variableName: "GIT_DESCRIBE",
+    },
+  },
 });
