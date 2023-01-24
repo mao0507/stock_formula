@@ -41,7 +41,10 @@ export default {
 
   created() {
     let count = this.getRandom(1, 5);
-    meme(count);
+    //如果是加密貨幣
+    if (this.$route.path.includes("cryptocurrency")) {
+      meme(count);
+    }
   },
   methods: {
     getRandom(min, max) {
