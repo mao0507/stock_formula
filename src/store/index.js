@@ -16,97 +16,128 @@ export default new Vuex.Store({
       // { text: "本益比 計算", to: "/pe" },
       // { text: "ROE 計算", to: "/roi" },
       // { text: "404", to: "/404" },
+
       {
         name: "首頁",
         icon: "mdi-star-david",
         to: "/",
       },
+      // {
+      //   name: "進場點計算",
+      //   code: "enterPoint",
+      //   to: "/stock/enterPoint",
+      //   icon: "",
+      // },
+      // {
+      //   name: "風報比計算",
+      //   code: "hazardRatio",
+      //   to: "/stock/hazardRatio",
+      //   icon: "",
+      // },
+      // {
+      //   name: "開倉位置計算",
+      //   code: "openPosition",
+      //   to: "/stock/openPosition",
+      //   icon: "",
+      // },
+      // {
+      //   name: "平均價計算",
+      //   code: "avgPrice",
+      //   to: "/stock/avgPrice",
+      //   icon: "",
+      // },
 
-      {
-        name: "進場點計算",
-        code: "enterPoint",
-        to: "/stock/enterPoint",
-        icon: "",
-      },
-      {
-        name: "風報比計算",
-        code: "hazardRatio",
-        to: "/stock/hazardRatio",
-        icon: "",
-      },
-      {
-        name: "開倉位置計算",
-        code: "openPosition",
-        to: "/stock/openPosition",
-        icon: "",
-      },
-      {
-        name: "平均價計算",
-        code: "avgPrice",
-        to: "/stock/avgPrice",
-        icon: "",
-      },
       //TODO 等未來有需要分類，再來做區分
-      // {
-      //   name: "股票",
-      //   icon: "mdi-chart-waterfall",
-      //   category: [
-      //     {
-      //       name: "進場點計算",
-      //       code: "enterPoint",
-      //       to: "/stock/enterPoint",
-      //       icon: "",
-      //     },
-      //     {
-      //       name: "風報比計算",
-      //       code: "hazardRatio",
-      //       to: "/stock/hazardRatio",
-      //       icon: "",
-      //     },
-      //     {
-      //       name: "開倉位置計算",
-      //       code: "openPosition",
-      //       to: "/stock/openPosition",
-      //       icon: "",
-      //     },
-      //     {
-      //       name: "平均價計算",
-      //       code: "avgPrice",
-      //       to: "/stock/avgPrice",
-      //       icon: "",
-      //     },
-      //   ],
-      // },
-      // {
-      //   name: "加密貨幣",
-      //   icon: "mdi-bitcoin",
-      //   category: [
-      //     {
-      //       name: "進場點計算",
-      //       code: "enterPoint",
-      //       to: "/cryptocurrency/enterPoint",
-      //       icon: "",
-      //     },
-      //     {
-      //       name: "風報比計算",
-      //       code: "hazardRatio",
-      //       to: "/cryptocurrency/hazardRatio",
-      //       icon: "",
-      //     },
-      //     {
-      //       name: "開倉位置計算",
-      //       code: "openPosition",
-      //       to: "/cryptocurrency/openPosition",
-      //       icon: "",
-      //     },
-      //     {
-      //       name: "平均價計算",
-      //       code: "avgPrice",
-      //       to: "/cryptocurrency/avgPrice",
-      //       icon: "",
-      //     },
-      //   ],
-      // },
+      {
+        name: "台股",
+        icon: "mdi-chart-waterfall",
+        category: [
+          {
+            name: "進場點計算",
+            code: "enterPoint",
+            to: "/twStock/enterPoint",
+            icon: "",
+          },
+          {
+            name: "風報比計算",
+            code: "hazardRatio",
+            to: "/twStock/hazardRatio",
+            icon: "",
+          },
+          {
+            name: "開倉位置計算",
+            code: "openPosition",
+            to: "/twStock/openPosition",
+            icon: "",
+          },
+          {
+            name: "均價/加碼數量計算",
+            code: "avgPrice",
+            to: "/twStock/avgPrice",
+            icon: "",
+          },
+        ],
+      },
+      {
+        name: "美股",
+        icon: "mdi-chart-waterfall",
+        category: [
+          {
+            name: "進場點計算",
+            code: "enterPoint",
+            to: "/usStock/enterPoint",
+            icon: "",
+          },
+          {
+            name: "風報比計算",
+            code: "hazardRatio",
+            to: "/usStock/hazardRatio",
+            icon: "",
+          },
+          {
+            name: "開倉位置計算",
+            code: "openPosition",
+            to: "/usStock/openPosition",
+            icon: "",
+          },
+          {
+            name: "均價/加碼數量計算",
+            code: "avgPrice",
+            to: "/usStock/avgPrice",
+            icon: "",
+          },
+        ],
+      },
+      {
+        name: "加密貨幣",
+        icon: "mdi-bitcoin",
+        category: [
+          {
+            name: "進場點計算",
+            code: "enterPoint",
+            to: "/cryptocurrency/enterPoint",
+            icon: "",
+          },
+          {
+            name: "風報比計算",
+            code: "hazardRatio",
+            to: "/cryptocurrency/hazardRatio",
+            icon: "",
+          },
+          {
+            name: "開倉位置計算",
+            code: "openPosition",
+            to: "/cryptocurrency/openPosition",
+            icon: "",
+          },
+          {
+            name: "均價/加碼數量計算",
+            code: "avgPrice",
+            to: "/cryptocurrency/avgPrice",
+            icon: "",
+          },
+        ],
+      },
     ],
     //黑白模式
     dark: true,
