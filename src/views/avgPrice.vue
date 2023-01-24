@@ -31,7 +31,7 @@
           h3 加碼價格 : {{calculate.Plus_Price}}
           br
           h3(v-if="computeType == 'avg'") {{overweightTitle}} : {{calculate.Plus_USDT}}
-          h3(v-else) 加碼數量 :  {{compute('Plus_USDT')}}
+          h3(v-else)  {{overweightTitle}}  :  {{compute('Plus_USDT')}}
           br 
           h3(v-if="computeType == 'avg'") 均價 : {{compute('avg_Price')}}
           h3(v-else) 均價 :  {{calculate.AVG_Price}}
