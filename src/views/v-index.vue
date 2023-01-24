@@ -17,13 +17,63 @@
 
             h3 紀錄了一些，股票 / 加密貨幣 可以使用到的計算公式
             br
-            h3 1. 進場點計算
-            br
-            h3 2. 風報比計算
+            h3 1. 加密貨幣 
             br 
-            h3 3. 開倉位置計算
+            h3(style="text-indent: 1em;") 
+              span *  
+                a(href="javascript:void(0)" @click="go('cryptocurrency','enterPoint')")  進場點計算 
             br
-            h3 4. 平均價計算
+            h3(style="text-indent: 1em;")
+              span * 
+                a(href="javascript:void(0)" @click="go('cryptocurrency','hazardRatio')")  風報比計算
+            br 
+            h3(style="text-indent: 1em;") 
+              span * 
+                a(href="javascript:void(0)" @click="go('cryptocurrency','openPosition')")  開倉位置計算
+            br 
+            h3(style="text-indent: 1em;") 
+              span * 
+                a(href="javascript:void(0)" @click="go('cryptocurrency','avgPrice')")  均價/加碼數量計算
+            br 
+            h3 2. 台股
+            br
+            h3(style="text-indent: 1em;") 
+              span * 
+                a(href="javascript:void(0)" @click="go('twStock','enterPoint')")  進場點計算
+            br
+            h3(style="text-indent: 1em;") 
+              span * 
+                a(href="javascript:void(0)" @click="go('twStock','hazardRatio')")  風報比計算
+            br 
+            h3(style="text-indent: 1em;") 
+              span * 
+                a(href="javascript:void(0)" @click="go('twStock','openPosition')")  開倉位置計算
+            br 
+            h3(style="text-indent: 1em;") 
+              span * 
+                a(href="javascript:void(0)" @click="go('twStock','avgPrice')")  均價/加碼數量計算
+            br 
+            h3 3. 美股
+            br
+            h3(style="text-indent: 1em;") 
+              span * 
+                a(href="javascript:void(0)" @click="go('usStock','enterPoint')")  進場點計算
+            br
+            h3(style="text-indent: 1em;") 
+              span * 
+                a(href="javascript:void(0)" @click="go('usStock','hazardRatio')")  風報比計算
+            br 
+            h3(style="text-indent: 1em;")  
+              span * 
+                a(href="javascript:void(0)" @click="go('usStock','openPosition')")  開倉位置計算
+            br 
+            h3(style="text-indent: 1em;") 
+              span * 
+                a(href="javascript:void(0)" @click="go('usStock','avgPrice')")  均價/加碼數量計算
+
+ 
+
+
             
 </template>
 <script>
@@ -43,7 +93,12 @@ export default {
       this.overlay = false;
     }, 500);
   },
-  methods: {},
+  methods: {
+    go(type, link) {
+      //console.log(type, link);
+      this.$router.push("/" + type + "/" + link);
+    },
+  },
 };
 </script>
 <style></style>
