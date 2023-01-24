@@ -65,7 +65,7 @@ export default new Vuex.Store({
             icon: "",
           },
           {
-            name: "開倉位置計算",
+            name: "開倉建議計算",
             code: "openPosition",
             to: "/twStock/openPosition",
             icon: "",
@@ -95,7 +95,7 @@ export default new Vuex.Store({
             icon: "",
           },
           {
-            name: "開倉位置計算",
+            name: "開倉建議計算",
             code: "openPosition",
             to: "/usStock/openPosition",
             icon: "",
@@ -125,7 +125,7 @@ export default new Vuex.Store({
             icon: "",
           },
           {
-            name: "開倉位置計算",
+            name: "開倉建議計算",
             code: "openPosition",
             to: "/cryptocurrency/openPosition",
             icon: "",

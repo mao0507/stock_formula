@@ -29,7 +29,7 @@
             br 
             h3(style="text-indent: 1em;") 
               span * 
-                a(href="javascript:void(0)" @click="go('cryptocurrency','openPosition')")  開倉位置計算
+                a(href="javascript:void(0)" @click="go('cryptocurrency','openPosition')")  開倉建議計算
             br 
             h3(style="text-indent: 1em;") 
               span * 
@@ -47,7 +47,7 @@
             br 
             h3(style="text-indent: 1em;") 
               span * 
-                a(href="javascript:void(0)" @click="go('twStock','openPosition')")  開倉位置計算
+                a(href="javascript:void(0)" @click="go('twStock','openPosition')")  開倉建議計算
             br 
             h3(style="text-indent: 1em;") 
               span * 
@@ -65,7 +65,7 @@
             br 
             h3(style="text-indent: 1em;")  
               span * 
-                a(href="javascript:void(0)" @click="go('usStock','openPosition')")  開倉位置計算
+                a(href="javascript:void(0)" @click="go('usStock','openPosition')")  開倉建議計算
             br 
             h3(style="text-indent: 1em;") 
               span * 
