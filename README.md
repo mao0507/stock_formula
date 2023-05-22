@@ -1,5 +1,10 @@
 # formula
 
+## 簡介
+紀錄了一些，股票 / 加密貨幣 可以使用到的計算公式
+
+[連結](https://mao0507.github.io/stock_formula/#/)
+
 ## Project setup
 ```
 yarn install
