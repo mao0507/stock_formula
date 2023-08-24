@@ -66,10 +66,12 @@ export default {
     ...mapState(["Setting", "dark"]),
     //提示文字標題
     alertTitle() {
-      if (this.type == "twStock" || this.type == "usStock") {
-        return "使用 (股數/張數)";
+      if (this.type == "twStock") {
+        return " (股數/張數)";
+      } else if (this.type == "usStock") {
+        return " 股數";
       } else {
-        return "使用 (USDT/顆數)";
+        return " (USDT/顆數)";
       }
     },
     //當前倉位標題
@@ -120,7 +122,7 @@ export default {
         this.calculate.Plus_USDT = null;
       }
     },
-
+    //計算項目
     compute(type) {
       //算平均價
       if (this.computeType == "avg") {
