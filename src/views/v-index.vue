@@ -77,7 +77,7 @@
             
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 export default {
   data: () => ({
     overlay: true,
@@ -85,7 +85,7 @@ export default {
   props: {},
   components: {},
   computed: {
-    ...mapState(["dark"]),
+    ...mapState(['dark']),
   },
   created() {},
   mounted() {
@@ -96,7 +96,7 @@ export default {
   methods: {
     go(type, link) {
       //console.log(type, link);
-      this.$router.push("/" + type + "/" + link);
+      this.$router.push('/' + type + '/' + link);
     },
   },
 };

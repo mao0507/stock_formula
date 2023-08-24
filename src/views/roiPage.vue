@@ -37,9 +37,9 @@ export default {
 
     textSetting: {
       outlined: true,
-      "hide-details": true,
+      'hide-details': true,
       dense: true,
-      type: "number",
+      type: 'number',
       min: 0,
     },
   }),
@@ -68,7 +68,7 @@ export default {
     //console.log("isDark", this.isDark);
   },
   watch: {
-    "$store.state.dark"(newValue) {
+    '$store.state.dark'(newValue) {
       this.isDark = newValue;
     },
   },

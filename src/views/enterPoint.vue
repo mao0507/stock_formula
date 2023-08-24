@@ -29,7 +29,7 @@
 
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 
 export default {
   data: () => ({
@@ -41,7 +41,7 @@ export default {
     },
   }),
   computed: {
-    ...mapState(["Setting", "dark"]),
+    ...mapState(['Setting', 'dark']),
   },
   created() {
     //console.log(this.Setting);
@@ -92,7 +92,7 @@ export default {
   },
 
   watch: {
-    "$store.state.dark"(newValue) {
+    '$store.state.dark'(newValue) {
       this.isDark = newValue;
     },
   },

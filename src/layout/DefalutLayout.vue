@@ -30,8 +30,8 @@ v-app
     
 </template>
 <script>
-import { mapState, mapMutations } from "vuex";
-import menuList from "/src/components/menuList";
+import { mapState, mapMutations } from 'vuex';
+import menuList from '/src/components/menuList';
 export default {
   data: () => ({
     showSideBar: null,
@@ -42,17 +42,17 @@ export default {
     menuList,
   },
   computed: {
-    ...mapState(["dark"]),
-    ...mapMutations(["changeDark"]),
+    ...mapState(['dark']),
+    ...mapMutations(['changeDark']),
     version() {
       // eslint-disable-next-line no-undef
-      return GIT_DESCRIBE.hash || "<version here>";
+      return GIT_DESCRIBE.hash || '<version here>';
     },
     styleClass() {
-      return this.dark ? "dark" : "light";
+      return this.dark ? 'dark' : 'light';
     },
     backgroudColor() {
-      return this.mode ? "b-dark" : "b-light";
+      return this.mode ? 'b-dark' : 'b-light';
     },
   },
   created() {
@@ -61,12 +61,12 @@ export default {
   mounted() {},
   methods: {
     go() {
-      window.location.href = "https://github.com/mao0507/stock_formula";
+      window.location.href = 'https://github.com/mao0507/stock_formula';
     },
   },
   watch: {
     mode(newValue) {
-      this.$store.commit("changeDark", newValue);
+      this.$store.commit('changeDark', newValue);
       //console.log("dark", this.dark);
     },
   },

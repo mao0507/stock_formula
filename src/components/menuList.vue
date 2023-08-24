@@ -24,24 +24,24 @@
             v-list-item-title {{item.name}}
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 export default {
   data: () => ({
     list: [
       {
-        name: "股票",
-        icon: "mdi-chart-waterfall",
+        name: '股票',
+        icon: 'mdi-chart-waterfall',
         category: [
-          { name: "", to: "", icon: "" },
-          { name: "", to: "", icon: "" },
+          { name: '', to: '', icon: '' },
+          { name: '', to: '', icon: '' },
         ],
       },
       {
-        name: "加密貨幣",
-        icon: "mdi-bitcoin",
+        name: '加密貨幣',
+        icon: 'mdi-bitcoin',
         category: [
-          { name: "", to: "", icon: "" },
-          { name: "", to: "", icon: "" },
+          { name: '', to: '', icon: '' },
+          { name: '', to: '', icon: '' },
         ],
       },
     ],
@@ -49,7 +49,7 @@ export default {
   props: {},
   components: {},
   computed: {
-    ...mapState(["sidebar"]),
+    ...mapState(['sidebar']),
   },
   created() {
     this.list = this.sidebar;

@@ -44,12 +44,12 @@
 
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 export default {
   data: () => ({
     isDark: null,
     overlay: true,
-    computeType: "avg",
+    computeType: 'avg',
     calculate: {
       Contract_Price: null,
       Contract_USDT: null,
@@ -63,45 +63,45 @@ export default {
     type: String,
   },
   computed: {
-    ...mapState(["Setting", "dark"]),
+    ...mapState(['Setting', 'dark']),
     //提示文字標題
     alertTitle() {
-      if (this.type == "twStock") {
-        return " (股數/張數)";
-      } else if (this.type == "usStock") {
-        return " 股數";
+      if (this.type == 'twStock') {
+        return ' (股數/張數)';
+      } else if (this.type == 'usStock') {
+        return ' 股數';
       } else {
-        return " (USDT/顆數)";
+        return ' (USDT/顆數)';
       }
     },
     //當前倉位標題
     currentTitle() {
-      if (this.type == "twStock") {
-        return "目前倉位(股數/張數)";
-      } else if (this.type == "usStock") {
-        return "目前倉位(股數)";
+      if (this.type == 'twStock') {
+        return '目前倉位(股數/張數)';
+      } else if (this.type == 'usStock') {
+        return '目前倉位(股數)';
       } else {
-        return "目前倉位(USDT/顆數)";
+        return '目前倉位(USDT/顆數)';
       }
     },
     //加碼標題
     overweightTitle() {
-      if (this.type == "twStock") {
-        return "加碼數量(股數/張數)";
-      } else if (this.type == "usStock") {
-        return "加碼數量(股數)";
+      if (this.type == 'twStock') {
+        return '加碼數量(股數/張數)';
+      } else if (this.type == 'usStock') {
+        return '加碼數量(股數)';
       } else {
-        return "加碼數量(USDT/顆數)";
+        return '加碼數量(USDT/顆數)';
       }
     },
     //總數標題
     totalTitle() {
-      if (this.type == "twStock") {
-        return "總股數/張數";
-      } else if (this.type == "usStock") {
-        return "總股數";
+      if (this.type == 'twStock') {
+        return '總股數/張數';
+      } else if (this.type == 'usStock') {
+        return '總股數';
       } else {
-        return "總金額/顆數";
+        return '總金額/顆數';
       }
     },
   },
@@ -115,19 +115,19 @@ export default {
   methods: {
     //變更模式
     changeType() {
-      if (this.computeType == "avg") {
+      if (this.computeType == 'avg') {
         this.calculate.AVG_Price = null;
       }
-      if (this.computeType == "plus") {
+      if (this.computeType == 'plus') {
         this.calculate.Plus_USDT = null;
       }
     },
     //計算項目
     compute(type) {
       //算平均價
-      if (this.computeType == "avg") {
+      if (this.computeType == 'avg') {
         //算出平均價
-        if (type == "avg_Price") {
+        if (type == 'avg_Price') {
           let Contract_Price =
             this.calculate.Contract_Price == null
               ? 0
@@ -155,7 +155,7 @@ export default {
           return isNaN(n) ? 0 : Number(n.toFixed(6));
         }
         //算出總數
-        if (type == "avg_USDT") {
+        if (type == 'avg_USDT') {
           let Contract_USDT =
             this.calculate.Contract_USDT == null
               ? 0
@@ -172,9 +172,9 @@ export default {
         }
       }
       //算加碼
-      if (this.computeType == "plus") {
+      if (this.computeType == 'plus') {
         //算加碼數量
-        if (type == "Plus_USDT") {
+        if (type == 'Plus_USDT') {
           let Contract_Price =
             this.calculate.Contract_Price == null
               ? 0
@@ -207,13 +207,13 @@ export default {
           return isNaN(n) ? 0 : Number(n);
         }
         //算加碼後總數
-        if (type == "avg_USDT") {
+        if (type == 'avg_USDT') {
           let Contract_USDT =
             this.calculate.Contract_USDT == null
               ? 0
               : this.calculate.Contract_USDT;
           //這裡使用computed 計算後的 Plus_USDT
-          let count = Number(Contract_USDT) + Number(this.compute("Plus_USDT"));
+          let count = Number(Contract_USDT) + Number(this.compute('Plus_USDT'));
 
           return count;
         }
@@ -222,7 +222,7 @@ export default {
   },
 
   watch: {
-    "$store.state.dark"(newValue) {
+    '$store.state.dark'(newValue) {
       this.isDark = newValue;
     },
   },

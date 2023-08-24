@@ -14,30 +14,30 @@
      
 </template>
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations } from 'vuex';
 export default {
   data: () => ({
     isDark: false,
     links: [
-      { text: "建議開倉計算", to: "/" },
-      { text: "ROI 計算", to: "/roi" },
+      { text: '建議開倉計算', to: '/' },
+      { text: 'ROI 計算', to: '/roi' },
     ],
   }),
   computed: {
-    ...mapState(["sidebar", "dark"]),
-    ...mapMutations(["changeDark"]),
+    ...mapState(['sidebar', 'dark']),
+    ...mapMutations(['changeDark']),
     textStyle() {
       if (this.isDark) {
-        return "white--text";
+        return 'white--text';
       } else {
-        return "black--text";
+        return 'black--text';
       }
     },
   },
   methods: {
     to(item) {
-      if (item == "github") {
-        window.location.href = "https://github.com/mao0507/stock_formula";
+      if (item == 'github') {
+        window.location.href = 'https://github.com/mao0507/stock_formula';
       } else {
         this.$router.push(item);
       }
@@ -49,7 +49,7 @@ export default {
   },
   watch: {
     isDark(newValue) {
-      this.$store.commit("changeDark", newValue);
+      this.$store.commit('changeDark', newValue);
       //console.log("dark", this.dark);
     },
   },

@@ -6,27 +6,27 @@ v-app
 
 </template>
 <script>
-import DefaultLayout from "../src/layout/DefalutLayout.vue";
+import DefaultLayout from '../src/layout/DefalutLayout.vue';
 
 //import navBar from "../src/components/nav-bar.vue";
-import { meme } from "../src/store/meme";
+import { meme } from '../src/store/meme';
 export default {
-  name: "App",
+  name: 'App',
 
   data: () => ({
-    styleClass: "grey darken-2",
+    styleClass: 'grey darken-2',
   }),
   components: {
     //navBar,
     DefaultLayout,
   },
   watch: {
-    "$store.state.dark"(newValue) {
+    '$store.state.dark'(newValue) {
       let isDark = newValue;
       if (isDark) {
-        this.styleClass = "grey darken-2";
+        this.styleClass = 'grey darken-2';
       } else {
-        this.styleClass = "grey lighten-3";
+        this.styleClass = 'grey lighten-3';
       }
     },
   },
@@ -35,14 +35,14 @@ export default {
     Layout() {
       //const latout = this.$route.meta.latout || "default";
       //return latout + "Layout";
-      return "DefaultLayout";
+      return 'DefaultLayout';
     },
   },
 
   created() {
     let count = this.getRandom(1, 5);
     //如果是加密貨幣
-    if (this.$route.path.includes("cryptocurrency")) {
+    if (this.$route.path.includes('cryptocurrency')) {
       meme(count);
     }
   },
